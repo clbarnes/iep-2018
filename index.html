@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js theme: HHMI Janelia</title>
+		<title>IEP 2018-06-21</title>
 		<meta name="author" content="Chris Barnes">
 
 		<link rel="stylesheet" href="css/reveal.css">
@@ -52,33 +52,118 @@
 
 		<div style="width: 50%; display: table-cell; vertical-align: middle; padding: 0; margin: 0;">
 			<h3 id="author" style="text-align: right"></h3>
-			<h3 id="date" style="text-align: right; vertical-align: text-bottom; padding: 0; margin: 0;"></h3>
+			<h3 style="text-align: right">Cardona lab</h3>
+			<!--<h3 id="date" style="text-align: right; vertical-align: text-bottom; padding: 0; margin: 0;">2018-06-21</h3>-->
 		</div>
 	</div>
 	<h1 id="title"></h1>
-	<h2 id="subtitle">Inspired by gh:saalfeldlab/Beamer-Theme-Janelia</h2>
+	<h2 id="subtitle"></h2>
 </section>
 
 <section>
-	<h1 class="slide-header">Slide 2 title</h1>
-
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	Curabitur egestas pulvinar pharetra.
-	Quisque facilisis ullamcorper felis, non tempor ex fringilla quis.
-	Mauris venenatis massa eget porta egestas.
-	Donec scelerisque, tortor ac vehicula ultricies, augue nisl sollicitudin elit, eget tincidunt justo metus eget eros.
-	Mauris in nisl id purus iaculis pellentesque.
-
+	<section data-markdown="slides/introduction/intro.md"></section>
+	<section data-markdown="slides/introduction/slide1.md"></section>
 </section>
 
-<section data-markdown>
-	<textarea data-template>
-		# A markdown slide
+<section>
+	<section data-markdown="slides/extrasynaptic_network/intro.md"></section>
+</section>
 
-		- Good job including this, Barry
-		- Thanks, other Barry
+<section>
+	<section data-markdown="slides/tools/intro.md"></section>
+	<section data-markdown="slides/tools/miscellaneous.md"></section>
+	<section data-markdown="slides/tools/contributions.md"></section>
+	<section data-markdown="slides/tools/l1_export.md"></section>
+	<section>
+		<img src="img/fig/n5_orthoviews.png" alt="Orthoviews of N5 stack in CATMAID" border="0">
+		<aside class="notes">
+			<p>H2N5 library which I contributed to, but primarily written by Andrew Champion.</p>
+			<p>Not fast enough for the majority of tracing</p>
+		</aside>
+	</section>
+	<section data-markdown="slides/tools/catpy.md"></section>
+	<section data-markdown="slides/tools/catmaid_extensions.md"></section>
+</section>
 
-	</textarea>
+<section>
+	<section data-markdown="slides/synapse_suggestor/intro.md"></section>
+	<section data-markdown="slides/synapse_suggestor/synapse_detection.md"></section>
+	<section>
+		<img src="img/fig/synapse_thresholding.svg">
+		<aside class="notes">
+			<p>The question is how accurate the detections are.</p>
+
+			<p>On the right is a precision-recall curve, and it shows that without post-hoc filtering
+			we have a very high recall but a low precision (lots of false positives).</p>
+
+			<p>We have statistics on the synapses' size and shape very easily accessible from this regime,
+			so the PR curve shows what happens if we filter the synapses by those statistics
+			(synaptic volume, contact volume, Z depth, certainty - a percentage output by the pixel classifier),
+			and by a logistic regression classifier based on those features.</p>
+
+			<p>Along with the violin plot, we can clearly toss out a lot of false positives with simple thresholding,
+			but there are babies in that bathwater.
+			At least an understanding of these characteristics would allow a user to pick
+			only the most likely new synapses for manual review.</p>
+		</aside>
+	</section>
+	<section data-markdown="slides/synapse_suggestor/catmaid_extension.md"></section>
+	<section>
+		<iframe
+				width="854" height="480" src="https://www.youtube.com/embed/NGbmXV09r9g" frameborder="0"
+				allow="autoplay; encrypted-media" allowfullscreen
+		></iframe>
+		<aside class="notes">
+
+		</aside>
+	</section>
+	<section>
+		<img src="img/fig/raw_pred_widget.png" alt="Debug view" border="0">
+	</section>
+	<section data-markdown="slides/synapse_suggestor/partner_classification.md"></section>
+	<section>
+		<img src="img/fig/data_sample.svg" alt="Sample training data for partner classification">
+		<p style="background: #000000">
+			<span style="color: #ff0000">membrane </span>
+			<span style="color: #00ff00">raw </span>
+			<span style="color: #0000ff">synapse</span>
+		</p>
+		<aside class="notes">
+			<p>Firstly, we generate the data.</p>
+
+			<p>There is a lot of literature already on classifying RGB images, so I wanted to pack our
+				information cached earlier into 3 channels.</p>
+
+			<p>I blacked out regions outside of the synapse and partner we're interested in,
+				rotated it so that the partner is above the synapse, and fixed the synapse in the middle-bottom of the image.</p>
+
+			<ul>
+				<li>Presynaptic: dense vesicle cloud, T-bar (note segmentation failure)</li>
+				<li>Postsynaptic: hard to see, but post-synaptic densities</li>
+				<li>None: ambiguity between membrane and synapse, only corner of synapse</li>
+			</ul>
+		</aside>
+	</section>
+	<section>
+		<img src="img/fig/training_accuracy.svg" alt="Validation accuracy during training">
+		<aside class="notes">
+			Unfortunately, it didn't pan out - over training epochs we'd hope to see the validation accuracy increasing
+			from chance (33%) towards 100%.
+
+			The ResNet comprises a number of different architectures, primarily distinguished by the number of layers,
+			but this was pretty much the story for all the ones I tried.
+
+			Humans can do this problem, so I'd like to go back and make a more intelligent attempt if time allows -
+			for example, it doesn't look like the membrane or synapse channels really add much,
+			and the blacking out may be too strong a signal.
+		</aside>
+	</section>
+</section>
+
+<section>
+	<section data-markdown="slides/cleft_analysis/intro.md"></section>
+	<section data-markdown="slides/cleft_analysis/asymmetry.md"></section>
+	<section data-markdown="slides/cleft_analysis/size_distribution.md"></section>
 </section>
 
 <!--SLIDES END HERE-->
@@ -88,12 +173,12 @@
 
 		<script>
 			const titleNode = document.getElementById("title");
-			if (!titleNode.innerHTML) {
+			if (titleNode && !titleNode.innerHTML) {
 				 titleNode.innerHTML = document.title;
 			}
 
 			const authorNode = document.getElementById("author");
-			if (!authorNode.innerHTML) {
+			if (authorNode && !authorNode.innerHTML) {
 				 for (let meta of document.getElementsByTagName("meta")) {
 					  if (meta.getAttribute("name") === "author") {
 							authorNode.innerHTML = meta.getAttribute("content");
@@ -103,7 +188,7 @@
 			}
 
 			const dateNode = document.getElementById("date");
-			if (!dateNode.innerHTML) {
+			if (dateNode && !dateNode.innerHTML) {
 				 const today = new Date();
 				 dateNode.innerHTML = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
 			}
