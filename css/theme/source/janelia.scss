@@ -75,6 +75,15 @@ section:not(.title-slide) {
 	}
 }
 
+.reveal section img { background:none; border:none; box-shadow:none; }
+
+.vcentered {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
 .reveal .progress {
 	height: 15px;
 	background-color: $HHMIGrayB;
