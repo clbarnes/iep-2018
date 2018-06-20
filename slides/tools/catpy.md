@@ -1,6 +1,6 @@
 # catpy
 
-- Formalised python interface for CATMAID
+- Formalised python interface for CATMAID, `pip`-installable
 - Documentation available at [catpy.readthedocs.io](https://catpy.readthedocs.io/en/latest/)
 
 ```python
@@ -17,3 +17,10 @@ catmaid.get(
     {"skeleton_ids": [11524047]}
 )
 ```
+
+notes:
+
+- I am primary maintainer
+- Allows interaction with CATMAID API and popular image stacks
+- Allows reproducible, readable, portable analysis of data
+- Installable with one line; designed for extensibility

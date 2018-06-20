@@ -10,6 +10,6 @@ exported to the Saalfeld lab's N5 format
 (solves a number of issues with HDF5, while having a similar design)
 
 Parallel writes, sharing raw datasets among projects, usage with tools like
-paintera and bigdataviewer
+paintera, bigdataviewer, gunpowder
 
 Allows usage of uncompressed data - JPEG compression artifacts can harm output

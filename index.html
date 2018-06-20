@@ -62,7 +62,6 @@
 
 <section>
 	<section data-markdown="slides/introduction/intro.md"></section>
-	<section data-markdown="slides/introduction/slide1.md"></section>
 </section>
 
 <section>
@@ -72,6 +71,9 @@
 <section>
 	<section data-markdown="slides/tools/intro.md"></section>
 	<section data-markdown="slides/tools/miscellaneous.md"></section>
+	<section>
+		<img src="img/fig/sdv.gif">
+	</section>
 	<section data-markdown="slides/tools/contributions.md"></section>
 	<section data-markdown="slides/tools/l1_export.md"></section>
 	<section>
@@ -87,7 +89,9 @@
 
 <section>
 	<section data-markdown="slides/synapse_suggestor/intro.md"></section>
+
 	<section data-markdown="slides/synapse_suggestor/synapse_detection.md"></section>
+
 	<section>
 		<img src="img/fig/synapse_thresholding.svg">
 		<aside class="notes">
@@ -107,7 +111,9 @@
 			only the most likely new synapses for manual review.</p>
 		</aside>
 	</section>
+
 	<section data-markdown="slides/synapse_suggestor/catmaid_extension.md"></section>
+
 	<section>
 		<iframe
 				width="854" height="480" src="https://www.youtube.com/embed/NGbmXV09r9g" frameborder="0"
@@ -117,10 +123,13 @@
 
 		</aside>
 	</section>
+
 	<section>
 		<img src="img/fig/raw_pred_widget.png" alt="Debug view" border="0">
 	</section>
+
 	<section data-markdown="slides/synapse_suggestor/partner_classification.md"></section>
+
 	<section>
 		<img src="img/fig/data_sample.svg" alt="Sample training data for partner classification">
 		<p style="background: #000000">
@@ -144,26 +153,82 @@
 			</ul>
 		</aside>
 	</section>
+
 	<section>
 		<img src="img/fig/training_accuracy.svg" alt="Validation accuracy during training">
 		<aside class="notes">
-			Unfortunately, it didn't pan out - over training epochs we'd hope to see the validation accuracy increasing
-			from chance (33%) towards 100%.
+			<p>Unfortunately, it didn't pan out - over training epochs we'd hope to see the validation accuracy increasing
+			from chance (33%) towards 100%.</p>
 
-			The ResNet comprises a number of different architectures, primarily distinguished by the number of layers,
-			but this was pretty much the story for all the ones I tried.
+			<p>The ResNet comprises a number of different architectures, primarily distinguished by the number of layers,
+			but this was pretty much the story for all the ones I tried.</p>
 
-			Humans can do this problem, so I'd like to go back and make a more intelligent attempt if time allows -
+			<p>Humans can do this problem, so I'd like to go back and make a more intelligent attempt if time allows -
 			for example, it doesn't look like the membrane or synapse channels really add much,
-			and the blacking out may be too strong a signal.
+			and the blacking out may be too strong a signal.</p>
 		</aside>
 	</section>
+
 </section>
 
 <section>
 	<section data-markdown="slides/cleft_analysis/intro.md"></section>
+	<section>
+		<img src="img/fig/orn-pn-ch-basin.png" alt="ORN -> PN and a1 cho -> Basin">
+		<aside class="notes">
+			I've been blocked by technological issues which have been resolved this
+			week, so in the mean time I manually annotated all of the synapses
+			in the first projection layer in two well-studied bilateral circuits,
+			mechanosensory chordotonal -> basin in the VNC, and in ORN -> PN in two
+			classes.
+		</aside>
+	</section>
 	<section data-markdown="slides/cleft_analysis/asymmetry.md"></section>
-	<section data-markdown="slides/cleft_analysis/size_distribution.md"></section>
+	<section>
+		<img src="img/fig/cho_basin_leftright_bias.svg">
+		<aside class="notes">
+			<ul>
+				<li>Comparing mirror pairs of neuron-neuron edges (made up of several synapses)</li>
+				<li>fig1 Y axis: left count divided by total count - 0.5 * 2: 0 is perfect symmetry, 1 or -1 is unilateral</li>
+				<li>fig2 y axis: mean of that as absolute</li>
+				<li>Expect to see orange bars smaller than blue bars</li>
+				<li>We don't - this is borne out in the ORN-PN connections too</li>
+				<li>Extension: this test for bilateral projections to the same neuron (probably in the brain)</li>
+			</ul>
+		</aside>
+	</section>
+	<section>
+		<img src="img/fig/cho_basin_count_vs_area.svg" width="80%">
+		<aside class="notes">
+			<ul>
+				<li>Step through:</li>
+				<li>look at points, assuming they're all the same colour</li>
+				<li>Linear relationship between synapse count and total area</li>
+				<li>Very close to 0 intercept: even very low count edges do not make larger synapses</li>
+				<li>Connections between left/right pairs show that this trend is consistent</li>
+			</ul>
+		</aside>
+	</section>
+	<section>
+		<img src="img/fig/cho_basin_synaptic_area_hist.svg">
+		<aside class="notes">
+			<ul>
+				<li>approximately log normal distribution</li>
+				<li>common for measurements of living tissue, as growth is often proportional to size
+				 and therefore additive on a log scale</li>
+			</ul>
+		</aside>
+	</section>
+	<section>
+		<img src="img/fig/orn_pn_synaptic_area_hist.svg">
+		<aside class="notes">
+			<ul>
+				<li>Same thing for ORN-PN</li>
+				<li>Median synapse is slightly larger.</li>
+				<li>Higher variance (but smaller sample size)</li>
+			</ul>
+		</aside>
+	</section>
 </section>
 
 <!--SLIDES END HERE-->
