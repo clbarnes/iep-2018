@@ -72,10 +72,11 @@ section:not(.title-slide) {
 		border-bottom-style: solid;
 		border-bottom-width: thick;
 		margin-bottom: 1em;
+		font-size: 1.6em;
 	}
 }
 
-.reveal section img { background:none; border:none; box-shadow:none; }
+.reveal section img { background:none; border:none; box-shadow:none;}
 
 .vcentered {
 	position: relative;
@@ -89,6 +90,13 @@ section:not(.title-slide) {
 	background-color: $HHMIGrayB;
 	.reveal .progress span {
 		background-color: $HHMIGreenB;
+	}
+}
+
+figcaption.citation {
+	font-size: 0.5em;
+	a {
+
 	}
 }
 

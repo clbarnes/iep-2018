@@ -66,6 +66,26 @@
 
 <section>
 	<section data-markdown="slides/extrasynaptic_network/intro.md"></section>
+
+	<section>
+		<figure>
+			<img src="img/fig/hive_plot.png" width="70%">
+			<figcaption class="citation"><a href="https://doi.org/10.1371/journal.pcbi.1005283">Bentley et al. (2016).
+				The Multilayer Connectome of Caenorhabditis elegans</a></figcaption>
+		</figure>
+
+		<aside class="notes">
+			hive plot
+			<ul>
+				<li>nodes are plotted on 3 axes: sensory, inter, motor</li>
+				<li>length up axis is node degree</li>
+				<li>connections are (undirected) edges</li>
+				<li>Green are possible extrasynaptic connections with monoamines</li>
+				<li>highly-connected sensory and motor neurons are dominated by extrasensory connections
+				which don't show up in EM, profound effects on neuromodulation</li>
+			</ul>
+		</aside>
+	</section>
 </section>
 
 <section>
@@ -226,6 +246,30 @@
 				<li>Same thing for ORN-PN</li>
 				<li>Median synapse is slightly larger.</li>
 				<li>Higher variance (but smaller sample size)</li>
+			</ul>
+		</aside>
+	</section>
+	<section data-markdown="slides/cleft_analysis/extensions.md"></section>
+	<section>
+		<figure>
+			<img src="img/fig/synapse_fractions.png">
+			<figcaption class="citation"><a href="https://doi.org/10.7554/eLife.14859">Berck et al. (2016)
+				The wiring diagram of a glomerular olfactory system</a></figcaption>
+		</figure>
+		<aside class="notes">
+			synaptic fraction
+
+			<ul>
+				<li>synaptic contact number may not be as important as synaptic fraction -
+					that is, the proportion of a receiver's inputs which come from a single
+					sender, or vice versa</li>
+				<li>remarkable parity between left-right pairs of
+					olfactory glomerular local interneurons</li>
+				<li>These account for some disparities in raw contact number</li>
+				<li>Synaptic area may further equalise the remaining disparities</li>
+				<li>Haven't done it yet because dendritic fields are large
+					and every synapse needs to be labelled for this analysis to work
+					- tractable with automation</li>
 			</ul>
 		</aside>
 	</section>

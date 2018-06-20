@@ -7,6 +7,7 @@ weakly and strongly connected partners, there are still left/right
 disparities
     - developmental reasons?
         - e.g. space available
+        - probabilistic branching
     - is normalisation a function of the hardware of the circuit,
     or does it occur in the cells?
 
