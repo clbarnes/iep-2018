@@ -62,6 +62,9 @@
 
 <section>
 	<section data-markdown="slides/introduction/intro.md"></section>
+	<section data-markdown="slides/introduction/connectomes.md"></section>
+	<section data-transition="slide-in none-out" data-markdown="slides/introduction/reductions.md"></section>
+	<section data-transition="none-in slide-out" data-markdown="slides/introduction/reductions2.md"></section>
 </section>
 
 <section>
@@ -75,27 +78,35 @@
 		</figure>
 
 		<aside class="notes">
-			hive plot
-			<ul>
-				<li>nodes are plotted on 3 axes: sensory, inter, motor</li>
-				<li>length up axis is node degree</li>
-				<li>connections are (undirected) edges</li>
-				<li>Green are possible extrasynaptic connections with monoamines</li>
-				<li>highly-connected sensory and motor neurons are dominated by extrasensory connections
-				which don't show up in EM, profound effects on neuromodulation</li>
-			</ul>
+			<p>This hive plot shows the extent to which the worm's connectivity patterns are potentially affected by
+				extrasynaptic monoamine edges.</p>
+			<p>Neurons are classified as sensory, motor or interneurons and arrayed on these three axes by their degree
+				(number of edges).</p>
+			<p>In the physical network of synapses and gap junctions, the hub nodes are interneurons, but in the multiplex
+				network sensory and motor neurons take a much larger role.</p>
+			<p>This may reflect neuromodulatory neurotransmitters' role in setting a body-wide state, such as hunger, which
+				was shown experimentally by Ghosh et al in 2016</p>
+			<p>There aren't many organisms whose neurotransmitter repertoire is as conveniently accessed as elegans', but these
+				results, along with others published in our paper, suggest that the extrasynaptic connectome is a lot of
+			  valuable data to leave on the table.</p>
 		</aside>
 	</section>
+
 </section>
 
 <section>
 	<section data-markdown="slides/tools/intro.md"></section>
+
 	<section data-markdown="slides/tools/miscellaneous.md"></section>
+
 	<section>
 		<img src="img/fig/sdv.gif">
 	</section>
+
 	<section data-markdown="slides/tools/contributions.md"></section>
+
 	<section data-markdown="slides/tools/l1_export.md"></section>
+
 	<section>
 		<img src="img/fig/n5_orthoviews.png" alt="Orthoviews of N5 stack in CATMAID" border="0">
 		<aside class="notes">
@@ -103,8 +114,11 @@
 			<p>Not fast enough for the majority of tracing</p>
 		</aside>
 	</section>
+
 	<section data-markdown="slides/tools/catpy.md"></section>
+
 	<section data-markdown="slides/tools/catmaid_extensions.md"></section>
+
 </section>
 
 <section>
@@ -189,7 +203,9 @@
 </section>
 
 <section>
+
 	<section data-markdown="slides/cleft_analysis/intro.md"></section>
+
 	<section>
 		<img src="img/fig/orn-pn-ch-basin.png" alt="ORN -> PN and a1 cho -> Basin">
 		<aside class="notes">
@@ -200,7 +216,9 @@
 			classes.
 		</aside>
 	</section>
+
 	<section data-markdown="slides/cleft_analysis/asymmetry.md"></section>
+
 	<section>
 		<img src="img/fig/cho_basin_leftright_bias.svg">
 		<aside class="notes">
@@ -214,6 +232,7 @@
 			</ul>
 		</aside>
 	</section>
+
 	<section>
 		<img src="img/fig/cho_basin_count_vs_area.svg" width="80%">
 		<aside class="notes">
@@ -226,6 +245,7 @@
 			</ul>
 		</aside>
 	</section>
+
 	<section>
 		<img src="img/fig/cho_basin_synaptic_area_hist.svg">
 		<aside class="notes">
@@ -236,8 +256,9 @@
 			</ul>
 		</aside>
 	</section>
+
 	<section>
-		<img src="img/fig/orn_pn_synaptic_area_hist.svg">
+		<img data-transition="none" src="img/fig/orn_pn_synaptic_area_hist.svg">
 		<aside class="notes">
 			<ul>
 				<li>Same thing for ORN-PN</li>
@@ -246,7 +267,9 @@
 			</ul>
 		</aside>
 	</section>
-	<section data-markdown="slides/cleft_analysis/extensions.md"></section>
+
+	<section data-markdown="slides/cleft_analysis/applications.md"></section>
+
 	<section>
 		<figure>
 			<img src="img/fig/synapse_fractions.png">
@@ -270,6 +293,7 @@
 			</ul>
 		</aside>
 	</section>
+
 </section>
 
 <!--SLIDES END HERE-->

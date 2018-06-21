@@ -1,4 +1,4 @@
-# Extensions
+# Applications at scale
 
 - Excitatory vs. inhibitory synapse size
 - Synaptic size by arbor depth
