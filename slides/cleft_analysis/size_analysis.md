@@ -8,11 +8,13 @@ notes:
 As a pilot study, I annotated the synaptic cleft areas in the first
 layer of sensory projections in two different circuits.
 
-These circuits are present bilaterally and show broadly similar patterns
-of connectivity, and while analyses using synapse contact number has
+These circuits are present bilaterally and in each, the two sides
+show broadly similar patterns of connectivity.
+
+However, while analyses using synapse contact number has
 been enough to discriminate between strongly and weakly connected
 components, there are significant differences between the left and right
-sides.
+sides in terms of absolute contact number.
 
 Chordotonals are a class of 8 mechanosensory neurons in the VNC.
 
@@ -28,4 +30,4 @@ There are a large number of such ORN to PN projections, so I selected
 two, the 45a and 82a, which are well reconstructed but of tractable
 size.
 
-Each circuit layer has approximately 200 synapses.
+Each circuit layer has approximately 200 synapses in total.

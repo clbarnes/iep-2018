@@ -21,7 +21,8 @@ internal features.
 3. Again to accelerate reconstruction of circuits, synaptic terminals
  are usually reduced from rich 3D structures into a single point.
 4. And finally, those points and trees are collapsed down further into
-a connectivity matrix.
+a connectivity matrix: every neuron is treated as a point, and its 
+entire suite of synapses with any given partner as a single value.
 
 All of these dimensionality reductions have value: often understanding
 can only really be gained through such incisive models.

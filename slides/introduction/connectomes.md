@@ -12,7 +12,7 @@ and many interactions.
 A large clue to these interactions lies in the constraints of which
 neurons *can* possibly transfer information: this is the connectome.
 
-Many modalities exist for uncovering connectomes at various scale
+While many modalities exist for uncovering connectomes at various scale
 levels, serial section transmission electron microscopy offers an
 excellent balance of single-synapse resolution and relatively high
 throughput.
