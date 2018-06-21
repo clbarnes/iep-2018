@@ -95,6 +95,117 @@
 </section>
 
 <section>
+
+	<section data-markdown="slides/cleft_analysis/intro.md"></section>
+
+	<section>
+		<img src="img/fig/orn-pn-ch-basin.png" alt="ORN -> PN and a1 cho -> Basin">
+	</section>
+
+	<section data-markdown="slides/cleft_analysis/size_analysis.md"></section>
+
+	<section data-transition="none-out">
+		<img src="img/fig/cho_basin_synaptic_area_hist.svg">
+		<aside class="notes">
+			<p>The first question to answer is, of course, how big are these synapses?</p>
+			<p>The distribution is approximately normal on a log scale, which is common for measurements of living tissue.</p>
+			<p>This is a comforting sanity check.</p>
+			<p>90% of synapses fall within approximately 1 order of magnitude of size.</p>
+		</aside>
+	</section>
+
+	<section data-transition="none-in">
+		<img src="img/fig/orn_pn_synaptic_area_hist.svg">
+		<aside class="notes">
+			<p>Here is the same plot for the ORN-PN layer.</p>
+			<p>Notably, the synapses are about 50% larger - this reinforces the variance in synapse morphology between
+			cell types well known in other organisms, and therefore the need to distinguish between synapse sizes when
+				comparing connectivity patterns within and across circuits.</p>
+		</aside>
+	</section>
+
+	<section data-markdown="slides/cleft_analysis/asymmetry.md"></section>
+
+	<section>
+		<img src="img/fig/cho_basin_single_count_vs_area.svg" width="80%">
+		<aside class="notes">
+			<p>There's a lot going on in this next plot, so here's a gentle introduction.</p>
+			<p>Each point is a single edge - that is, the sum of all synaptic contacts for a single unilateral pair of
+				neurons.</p>
+			<p>We plot the number of synapses against the total synaptic area of that edge.</p>
+			<p>The mirror pair of neurons are in the same color and connected by a dotted line.</p>
+		</aside>
+	</section>
+
+	<section>
+		<img src="img/fig/cho_basin_count_vs_area.svg" width="80%">
+		<aside class="notes">
+			<p>Here is the same thing fleshed out to include the whole chordotonal-basin layer.</p>
+			<p>Notably, the linear regression fits very well and almost intersects at (0, 0),
+				which is evidence that for this cell type, synapse size is pretty consistent and that contact number is indeed
+			the primary determinant of connection strength.</p>
+			<p>You may also note that the lines connecting mirror pairs are largely aligned with the linear regression, which
+			suggests that synapse count isn't making up for contralateral asymmetries either.</p>
+		</aside>
+	</section>
+
+	<section>
+		<img src="img/fig/cho_basin_leftright_bias.svg">
+		<aside class="notes">
+			<p>And to back that point up, here are the left-right asymmetries quantified in terms of count and area.</p>
+			<p>The asymmetry quantity is the left value divided by sum of the left and right, normalised to the [-1, 1]
+				interval: that is to say, 0 is perfect symmetry, +1 would be unilateral on the left side, and -1 would be
+				unilateral on the right.</p>
+			<p>The second figure shows the mean of the absolute asymmetry values.</p>
+			<p>If synapse size was making up for deficits in synapse number, we'd expect to see the orange bars consistently
+				smaller than the blue, but that's not the case.</p>
+			<p>The ORN-PN data tells the same story, but with only two pairs of cells on each side there's less data to look
+				at.</p>
+			<p>From this data, it looks like synapse area is no better a proxy for connection strength than synapse count,
+				but I would be interested to see similar data for bilateral neurons projecting to the same neuron.</p>
+		</aside>
+	</section>
+
+	<section>
+		<figure>
+			<img src="img/fig/synapse_fractions.png">
+			<figcaption class="citation"><a href="https://doi.org/10.7554/eLife.14859">Berck et al. (2016)
+				The wiring diagram of a glomerular olfactory system</a></figcaption>
+		</figure>
+		<aside class="notes">
+			<p>One explanation for this is that, from other work, we can see that the raw volume of input from any given cell
+			or class is probably less important than what proportion of the cell's total input that class makes up.</p>
+			<p>In this paper, it was shown that even though the absolute number of inputs to and from glomerular local
+				interneurons have some left-right disparities, the synapse count fraction shows much better parity.</p>
+			<p>Using this small data set, synapse area fraction calculations are not possible because every input synapse in the
+				entire dendritic field of the postsynaptic partner needs to be annotated, but this will be tractable with
+				automation.</p>
+		</aside>
+	</section>
+
+	<section data-markdown="slides/cleft_analysis/applications.md"></section>
+
+</section>
+
+<section data-markdown="slides/conclusion.md"></section>
+
+<section class="title-slide" data-background="linear-gradient(to right, #058d96, #8ac341)">
+	<h1>Acknowledgements</h1>
+	<ul>
+		<li>Cardona lab</li>
+		<li>Scientific software and Ilastik developers</li>
+		<li>Janelia/ Cambridge graduate programs</li>
+	</ul>
+	<aside class="notes">
+		<p>I'd like to recognise the Cardona lab, in particular Albert, Andrew Champion and Tom Kazimiers</p>
+		<p>Scientific software at Janelia and the developers of Ilastik, for their initiation and
+			continued support of the automated synapse detection pipeline</p>
+		<p>The graduate program for support for me personally, as hard as I sometimes make it for them</p>
+	</aside>
+</section>
+
+
+<section>
 	<section data-markdown="slides/tools/intro.md"></section>
 
 	<section data-markdown="slides/tools/miscellaneous.md"></section>
@@ -122,6 +233,7 @@
 </section>
 
 <section>
+
 	<section data-markdown="slides/synapse_suggestor/intro.md"></section>
 
 	<section data-markdown="slides/synapse_suggestor/synapse_detection.md"></section>
@@ -159,156 +271,47 @@
 		<img src="img/fig/raw_pred_widget.png" alt="Debug view" border="0">
 	</section>
 
-	<section data-markdown="slides/synapse_suggestor/partner_classification.md"></section>
+	<!--<section data-markdown="slides/synapse_suggestor/partner_classification.md"></section>-->
 
-	<section>
-		<img src="img/fig/data_sample.svg" alt="Sample training data for partner classification">
-		<p style="background: #000000">
-			<span style="color: #ff0000">membrane </span>
-			<span style="color: #00ff00">raw </span>
-			<span style="color: #0000ff">synapse</span>
-		</p>
-		<aside class="notes">
-			<p>Firstly, we generate the data.</p>
+	<!--<section>-->
+		<!--<img src="img/fig/data_sample.svg" alt="Sample training data for partner classification">-->
+		<!--<p style="background: #000000">-->
+			<!--<span style="color: #ff0000">membrane </span>-->
+			<!--<span style="color: #00ff00">raw </span>-->
+			<!--<span style="color: #0000ff">synapse</span>-->
+		<!--</p>-->
+		<!--<aside class="notes">-->
+			<!--<p>Firstly, we generate the data.</p>-->
 
-			<p>There is a lot of literature already on classifying RGB images, so I wanted to pack our
-				information cached earlier into 3 channels.</p>
+			<!--<p>There is a lot of literature already on classifying RGB images, so I wanted to pack our-->
+				<!--information cached earlier into 3 channels.</p>-->
 
-			<p>I blacked out regions outside of the synapse and partner we're interested in,
-				rotated it so that the partner is above the synapse, and fixed the synapse in the middle-bottom of the image.</p>
+			<!--<p>I blacked out regions outside of the synapse and partner we're interested in,-->
+				<!--rotated it so that the partner is above the synapse, and fixed the synapse in the middle-bottom of the image.</p>-->
 
-			<ul>
-				<li>Presynaptic: dense vesicle cloud, T-bar (note segmentation failure)</li>
-				<li>Postsynaptic: hard to see, but post-synaptic densities</li>
-				<li>None: ambiguity between membrane and synapse, only corner of synapse</li>
-			</ul>
-		</aside>
-	</section>
+			<!--<ul>-->
+				<!--<li>Presynaptic: dense vesicle cloud, T-bar (note segmentation failure)</li>-->
+				<!--<li>Postsynaptic: hard to see, but post-synaptic densities</li>-->
+				<!--<li>None: ambiguity between membrane and synapse, only corner of synapse</li>-->
+			<!--</ul>-->
+		<!--</aside>-->
+	<!--</section>-->
 
-	<section>
-		<img src="img/fig/training_accuracy.svg" alt="Validation accuracy during training">
-		<aside class="notes">
-			<p>Unfortunately, it didn't pan out - over training epochs we'd hope to see the validation accuracy increasing
-			from chance (33%) towards 100%.</p>
+	<!--<section>-->
+		<!--<img src="img/fig/training_accuracy.svg" alt="Validation accuracy during training">-->
+		<!--<aside class="notes">-->
+			<!--<p>Unfortunately, it didn't pan out - over training epochs we'd hope to see the validation accuracy increasing-->
+			<!--from chance (33%) towards 100%.</p>-->
 
-			<p>The ResNet comprises a number of different architectures, primarily distinguished by the number of layers,
-			but this was pretty much the story for all the ones I tried.</p>
+			<!--<p>The ResNet comprises a number of different architectures, primarily distinguished by the number of layers,-->
+			<!--but this was pretty much the story for all the ones I tried.</p>-->
 
-			<p>Humans can do this problem, so I'd like to go back and make a more intelligent attempt if time allows -
-			for example, it doesn't look like the membrane or synapse channels really add much,
-			and the blacking out may be too strong a signal.</p>
-		</aside>
-	</section>
+			<!--<p>Humans can do this problem, so I'd like to go back and make a more intelligent attempt if time allows - -->
+			<!--for example, it doesn't look like the membrane or synapse channels really add much,-->
+			<!--and the blacking out may be too strong a signal.</p>-->
+		<!--</aside>-->
+	<!--</section>-->
 
-</section>
-
-<section>
-
-	<section data-markdown="slides/cleft_analysis/intro.md"></section>
-
-	<section>
-		<img src="img/fig/orn-pn-ch-basin.png" alt="ORN -> PN and a1 cho -> Basin">
-		<aside class="notes">
-			I've been blocked by technological issues which have been resolved this
-			week, so in the mean time I manually annotated all of the synapses
-			in the first projection layer in two well-studied bilateral circuits,
-			mechanosensory chordotonal -> basin in the VNC, and in ORN -> PN in two
-			classes.
-		</aside>
-	</section>
-
-	<section data-markdown="slides/cleft_analysis/asymmetry.md"></section>
-
-	<section>
-		<img src="img/fig/cho_basin_leftright_bias.svg">
-		<aside class="notes">
-			<ul>
-				<li>Comparing mirror pairs of neuron-neuron edges (made up of several synapses)</li>
-				<li>fig1 Y axis: left count divided by total count - 0.5 * 2: 0 is perfect symmetry, 1 or -1 is unilateral</li>
-				<li>fig2 y axis: mean of that as absolute</li>
-				<li>Expect to see orange bars smaller than blue bars</li>
-				<li>We don't - this is borne out in the ORN-PN connections too</li>
-				<li>Extension: this test for bilateral projections to the same neuron (probably in the brain)</li>
-			</ul>
-		</aside>
-	</section>
-
-	<section>
-		<img src="img/fig/cho_basin_count_vs_area.svg" width="80%">
-		<aside class="notes">
-			<ul>
-				<li>Step through:</li>
-				<li>look at points, assuming they're all the same colour</li>
-				<li>Linear relationship between synapse count and total area</li>
-				<li>Very close to 0 intercept: even very low count edges do not make larger synapses</li>
-				<li>Connections between left/right pairs show that this trend is consistent</li>
-			</ul>
-		</aside>
-	</section>
-
-	<section>
-		<img src="img/fig/cho_basin_synaptic_area_hist.svg">
-		<aside class="notes">
-			<ul>
-				<li>approximately log normal distribution</li>
-				<li>common for measurements of living tissue, as growth is often proportional to size
-				 and therefore additive on a log scale</li>
-			</ul>
-		</aside>
-	</section>
-
-	<section>
-		<img data-transition="none" src="img/fig/orn_pn_synaptic_area_hist.svg">
-		<aside class="notes">
-			<ul>
-				<li>Same thing for ORN-PN</li>
-				<li>Median synapse is slightly larger.</li>
-				<li>Higher variance (but smaller sample size)</li>
-			</ul>
-		</aside>
-	</section>
-
-	<section data-markdown="slides/cleft_analysis/applications.md"></section>
-
-	<section>
-		<figure>
-			<img src="img/fig/synapse_fractions.png">
-			<figcaption class="citation"><a href="https://doi.org/10.7554/eLife.14859">Berck et al. (2016)
-				The wiring diagram of a glomerular olfactory system</a></figcaption>
-		</figure>
-		<aside class="notes">
-			synaptic fraction
-
-			<ul>
-				<li>synaptic contact number may not be as important as synaptic fraction -
-					that is, the proportion of a receiver's inputs which come from a single
-					sender, or vice versa</li>
-				<li>remarkable parity between left-right pairs of
-					olfactory glomerular local interneurons</li>
-				<li>These account for some disparities in raw contact number</li>
-				<li>Synaptic area may further equalise the remaining disparities</li>
-				<li>Haven't done it yet because dendritic fields are large
-					and every synapse needs to be labelled for this analysis to work
-					- tractable with automation</li>
-			</ul>
-		</aside>
-	</section>
-
-</section>
-
-<section class="title-slide" data-background="linear-gradient(to right, #058d96, #8ac341)">
-	<h1>Acknowledgements</h1>
-	<ul>
-		<li>Cardona lab</li>
-		<li>Scientific software and Ilastik developers</li>
-		<li>Janelia/ Cambridge graduate programs</li>
-	</ul>
-	<aside class="notes">
-		<p>I'd like to recognise the Cardona lab, in particular Albert, Andrew Champion and Tom Kazimiers</p>
-		<p>Scientific software at Janelia and the developers of Ilastik, primarily at the EMBL, for their initiation and
-			continued support of the automated synapse detection pipeline</p>
-		<p>The graduate program for support for me personally, as hard as I sometimes make it for them</p>
-	</aside>
 </section>
 
 <!--SLIDES END HERE-->
@@ -332,10 +335,12 @@
 				 }
 			}
 
+			function zeroPad(number, length) {return ("0000" + number).slice(-length);}
+
 			const dateNode = document.getElementById("date");
 			if (dateNode && !dateNode.innerHTML) {
 				 const today = new Date();
-				 dateNode.innerHTML = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+				 dateNode.innerHTML = `${zeroPad(today.getFullYear(), 4)}-${zeroPad(today.getMonth() + 1, 2)}-${zeroPad(today.getDate(), 2)}`
 			}
 		</script>
 

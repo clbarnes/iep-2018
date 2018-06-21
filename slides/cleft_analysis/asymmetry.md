@@ -1,17 +1,12 @@
-# Does synaptic area rectify contact number asymmetry?
+# Analysing asymmetry
+
+- If one cell type sends fewer synapses, does it send larger synapses?
+- If one side has more synapses, does the other have larger synapses?
 
 notes:
 
-- While some trends are visible in the contact number data in terms of
-weakly and strongly connected partners, there are still left/right
-disparities
-    - developmental reasons?
-        - e.g. space available
-        - probabilistic branching
-    - is normalisation a function of the hardware of the circuit,
-    or does it occur in the cells?
+One of the most tractable questions to answer here is whether synapse
+count asymmetry is rectified by synaptic contact area.
 
-Test:
-
-- If one side forms more synapses, does the other side form bigger
-synapses?
+We can look at this between cell types in the same microcircuit, and
+between contralateral pairs of the same cell types.
